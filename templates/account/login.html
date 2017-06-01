@@ -1,5 +1,6 @@
 {% extends '_base_auth.html' %}
 {% load i18n %}
+{% load bootstrap3 %}
 
 {% block content %}
     <!-- LOGIN FORM -->
@@ -11,17 +12,9 @@
                     <h3 class="h4 mar-no">{% trans 'Iniciar sesión' %}</h3>
                     <p class="text-muted">{% trans 'Inicie sesión con su cuenta' %}</p>
                 </div>
-                <form action="index.html">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Username" autofocus>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-                    <div class="checkbox pad-btm text-left">
-                        <input id="demo-form-checkbox" class="magic-checkbox" type="checkbox">
-                        <label for="demo-form-checkbox">{% trans 'Recordarme' %}</label>
-                    </div>
+                <form action="{% url 'account_login' %}" method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
                     <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Ingresar'%}</button>
                 </form>
             </div>

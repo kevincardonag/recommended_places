@@ -21,7 +21,7 @@
                     <h3 class="h4 mar-no">{% trans 'Crear cuenta' %}</h3>
                     <p class="text-muted">{% trans 'Bienvenido a sus lugares favoritos' %}</p>
                 </div>
-                <form action="pages-login.html">
+                <form action="" method="POST">
                     {% csrf_token %}
                     {% bootstrap_form form %}
 

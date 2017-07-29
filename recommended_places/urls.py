@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from django.contrib import admin
 
 from recommended_places import settings
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='_base.html'), name='home'),
+    url(r'^$', TemplateView.as_view(template_name='_base.html')),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^admin/', include(admin.site.urls))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,7 +10,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=50, verbose_name=_('Apellidos'))
     photo = models.ImageField(upload_to="photos/")
     email = models.EmailField(unique=True, verbose_name=_('Correo'))
-    objects =UserManager()
+
+    objects = UserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
